@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>📋 Organisateur CV TAFINAR</title>
+    <title>Organisateur CV TAFINAR - Fonctionnel</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -12,37 +13,32 @@
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
             background: #f5f7fa;
             padding: 20px;
-            line-height: 1.6;
+            line-height: 1.5;
         }
 
         .container {
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
             background: white;
-            border-radius: 12px;
+            border-radius: 8px;
             box-shadow: 0 4px 20px rgba(0,0,0,0.1);
             overflow: hidden;
         }
 
         .header {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: #2563eb;
             color: white;
-            padding: 30px;
+            padding: 20px 30px;
             text-align: center;
         }
 
         .header h1 {
-            font-size: 2.5em;
-            margin-bottom: 10px;
-            font-weight: 300;
-        }
-
-        .header p {
-            font-size: 1.2em;
-            opacity: 0.9;
+            font-size: 2em;
+            font-weight: 600;
+            margin-bottom: 5px;
         }
 
         .main-content {
@@ -52,19 +48,19 @@
         .config-section {
             background: #f8f9ff;
             padding: 20px;
-            border-radius: 8px;
+            border-radius: 6px;
             margin-bottom: 30px;
-            border-left: 4px solid #667eea;
+            border-left: 4px solid #2563eb;
         }
 
         .input-group {
-            margin-bottom: 25px;
+            margin-bottom: 20px;
         }
 
         .input-group label {
             display: block;
             font-weight: 600;
-            margin-bottom: 8px;
+            margin-bottom: 5px;
             color: #333;
         }
 
@@ -72,70 +68,60 @@
         .input-group select,
         .input-group textarea {
             width: 100%;
-            padding: 12px;
+            padding: 10px;
             border: 2px solid #e0e6ed;
-            border-radius: 6px;
-            font-size: 16px;
-            transition: border-color 0.3s ease;
+            border-radius: 4px;
+            font-size: 14px;
+            font-family: inherit;
         }
 
         .input-group input:focus,
         .input-group select:focus,
         .input-group textarea:focus {
             outline: none;
-            border-color: #667eea;
-            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+            border-color: #2563eb;
         }
 
         .cv-input {
-            min-height: 300px;
+            min-height: 400px;
             resize: vertical;
             font-family: monospace;
+            font-size: 13px;
         }
 
         .btn {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: #2563eb;
             color: white;
             border: none;
-            padding: 15px 30px;
-            border-radius: 8px;
-            font-size: 18px;
+            padding: 12px 25px;
+            border-radius: 6px;
+            font-size: 16px;
             font-weight: 600;
             cursor: pointer;
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
-            width: 100%;
-            margin-bottom: 20px;
+            transition: all 0.2s;
         }
 
         .btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
+            background: #1d4ed8;
         }
 
         .btn:disabled {
             opacity: 0.6;
             cursor: not-allowed;
-            transform: none;
-            box-shadow: none;
+        }
+
+        .btn-full {
+            width: 100%;
+            padding: 15px;
+            margin-bottom: 20px;
         }
 
         .loading {
             display: none;
             text-align: center;
             padding: 20px;
-            color: #667eea;
+            color: #2563eb;
             font-weight: 600;
-        }
-
-        .loading::before {
-            content: "⏳";
-            margin-right: 10px;
-            animation: spin 2s linear infinite;
-        }
-
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
         }
 
         .results {
@@ -143,67 +129,60 @@
             margin-top: 30px;
         }
 
+        .header-inputs {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 30px;
+            background: #f8fafc;
+            padding: 20px;
+            border-radius: 6px;
+            border-left: 4px solid #22c55e;
+        }
+
         .section-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
             gap: 20px;
             margin-top: 20px;
         }
 
         .section-block {
             background: #f8f9fa;
-            border-radius: 8px;
-            padding: 20px;
+            border-radius: 6px;
+            padding: 15px;
             border: 1px solid #e9ecef;
         }
 
         .section-title {
-            background: #2c5aa0;
+            background: #2563eb;
             color: white;
             padding: 10px 15px;
-            margin: -20px -20px 15px -20px;
-            border-radius: 8px 8px 0 0;
+            margin: -15px -15px 15px -15px;
+            border-radius: 6px 6px 0 0;
             font-weight: 600;
-            font-size: 1.1em;
+            font-size: 14px;
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            box-shadow: 0 2px 4px rgba(37, 99, 235, 0.2);
         }
 
         .section-content {
             width: 100%;
-            min-height: 150px;
-            border: 2px solid #e0e6ed;
-            border-radius: 6px;
-            padding: 12px;
+            min-height: 120px;
+            border: 1px solid #e0e6ed;
+            border-radius: 4px;
+            padding: 10px;
             font-family: inherit;
             font-size: 14px;
-            line-height: 1.5;
+            line-height: 1.4;
             resize: vertical;
         }
 
         .section-content:focus {
             outline: none;
-            border-color: #2c5aa0;
-            box-shadow: 0 0 0 3px rgba(44, 90, 160, 0.1);
-        }
-
-        .instructions {
-            background: #e7f3ff;
-            border: 1px solid #b3d9ff;
-            border-radius: 8px;
-            padding: 20px;
-            margin-bottom: 30px;
-        }
-
-        .instructions h3 {
-            color: #0066cc;
-            margin-bottom: 15px;
-        }
-
-        .instructions ol {
-            padding-left: 20px;
-        }
-
-        .instructions li {
-            margin-bottom: 8px;
+            border-color: #2563eb;
         }
 
         .error {
@@ -211,7 +190,7 @@
             border: 1px solid #fcc;
             color: #c33;
             padding: 15px;
-            border-radius: 6px;
+            border-radius: 4px;
             margin-bottom: 20px;
             display: none;
         }
@@ -221,49 +200,215 @@
             border: 1px solid #cfc;
             color: #363;
             padding: 15px;
-            border-radius: 6px;
+            border-radius: 4px;
             margin-bottom: 20px;
             display: none;
+        }
+
+        .preview-section {
+            margin-top: 30px;
+            padding: 20px;
+            background: #f8fafc;
+            border-radius: 6px;
+            border-left: 4px solid #16a34a;
+        }
+
+        /* ===== CV PREVIEW STYLES ===== */
+        .cv-preview {
+            background: white;
+            max-width: 800px;
+            margin: 20px auto 0 auto;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+            border-radius: 4px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .cv-preview::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 8px;
+            height: 100%;
+            background: linear-gradient(180deg, #1e40af 0%, #2563eb 100%);
+        }
+
+        .cv-header-preview {
+            background: white;
+            padding: 25px 30px 25px 40px;
+            display: flex;
+            align-items: center;
+        }
+
+        .logo-area {
+            width: 50%;
+            height: 80px;
+            background: #6b7280;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        .header-info {
+            width: 50%;
+            padding-left: 30px;
+            text-align: center;
+        }
+
+        .poste-recherche {
+            color: #1e40af;
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+
+        .profil-code {
+            color: #16a34a;
+            font-size: 15px;
+            font-weight: 600;
+        }
+
+        .cv-body-preview {
+            padding: 0 40px 40px 48px;
+        }
+
+        .section-preview {
+            margin-bottom: 30px;
+        }
+
+        .section-header-preview {
+            background: linear-gradient(135deg, #1e40af 0%, #2563eb 100%);
+            color: white;
+            padding: 12px 20px;
+            font-size: 15px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            text-align: center;
+            margin: 25px -20px 20px -20px;
+            box-shadow: 0 3px 8px rgba(30, 64, 175, 0.2);
+        }
+
+        .experience-block-preview {
+            margin-bottom: 25px;
+        }
+
+        .poste-entreprise-preview {
+            color: #1e40af;
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: 5px;
+            line-height: 1.3;
+        }
+
+        .periode-lieu-preview {
+            background: rgba(34, 197, 94, 0.1);
+            color: #16a34a;
+            font-weight: 600;
+            font-size: 14px;
+            padding: 6px 12px;
+            border-left: 3px solid #22c55e;
+            margin-bottom: 12px;
+            display: inline-block;
+            border-radius: 2px;
+        }
+
+        .mission-preview {
+            color: #1f2937;
+            font-size: 15px;
+            line-height: 1.5;
+            margin-bottom: 6px;
+        }
+
+        .mission-preview::before {
+            content: '• ';
+            color: #6b7280;
+            font-weight: bold;
+        }
+
+        /* CSS PRINT - FONCTIONNEL A4 */
+        @media print {
+            @page { 
+                size: A4; 
+                margin: 15mm;
+            }
+            
+            body { 
+                background: white !important;
+                padding: 0 !important;
+                print-color-adjust: exact;
+                -webkit-print-color-adjust: exact;
+            }
+            
+            .container {
+                box-shadow: none !important;
+                border-radius: 0 !important;
+                max-width: none !important;
+            }
+            
+            .main-content {
+                display: none !important;
+            }
+            
+            .cv-preview {
+                margin: 0 !important;
+                box-shadow: none !important;
+                border-radius: 0 !important;
+                max-width: none !important;
+                page-break-inside: avoid;
+            }
+            
+            .section-preview {
+                page-break-inside: avoid;
+                break-inside: avoid;
+            }
+            
+            .experience-block-preview {
+                page-break-inside: avoid;
+                break-inside: avoid;
+            }
         }
     </style>
 </head>
 <body>
     <div class="container">
         <div class="header">
-            <h1>📋 Organisateur CV TAFINAR</h1>
-            <p>Structurez automatiquement vos CV avec l'IA</p>
+            <h1>Organisateur CV TAFINAR</h1>
+            <p>Structuration automatique avec IA</p>
         </div>
 
         <div class="main-content">
-            <div class="instructions">
-                <h3>💡 Mode d'emploi :</h3>
-                <ol>
-                    <li><strong>Configurez</strong> votre clé API OpenRouter ci-dessous</li>
-                    <li><strong>Collez</strong> le CV en vrac dans la zone de texte</li>
-                    <li><strong>Cliquez</strong> "Organiser" - l'IA structure automatiquement</li>
-                    <li><strong>Modifiez</strong> chaque section si nécessaire dans les zones séparées</li>
-                    <li><strong>Utilisez</strong> le résultat pour votre mise en page finale</li>
-                </ol>
-            </div>
-
             <div class="config-section">
-                <h3>⚙️ Configuration API</h3>
+                <h3>Configuration API</h3>
                 <div class="input-group">
                     <label for="api-key">Clé API OpenRouter :</label>
-                    <input type="password" 
-                           id="api-key" 
-                           placeholder="sk-or-v1-xxxxx..."
-                           value="">
-                    <small style="color: #666;">Obtenez votre clé sur <a href="https://openrouter.ai" target="_blank">OpenRouter.ai</a></small>
+                    <input type="password" id="api-key" placeholder="sk-or-v1-xxxxx...">
+                    <small>Obtenez votre clé sur openrouter.ai</small>
                 </div>
 
                 <div class="input-group">
-                    <label for="model-select">Modèle IA :</label>
+                    <label for="model-select">Modèle :</label>
                     <select id="model-select">
                         <option value="meta-llama/llama-3.1-70b-instruct:free">Llama 3.1 70B (Gratuit)</option>
-                        <option value="openai/gpt-4o-mini">GPT-4o Mini (Payant)</option>
-                        <option value="anthropic/claude-3.5-sonnet">Claude 3.5 Sonnet (Payant)</option>
+                        <option value="openai/gpt-4o-mini">GPT-4o Mini</option>
+                        <option value="anthropic/claude-3.5-sonnet">Claude 3.5 Sonnet</option>
                     </select>
+                </div>
+            </div>
+
+            <div class="header-inputs">
+                <div class="input-group">
+                    <label for="poste-recherche">Poste recherché :</label>
+                    <input type="text" id="poste-recherche" placeholder="DIRECTEUR TECHNIQUE">
+                </div>
+                <div class="input-group">
+                    <label for="profil-code">Code profil :</label>
+                    <input type="text" id="profil-code" placeholder="PROFIL DTE-127">
                 </div>
             </div>
 
@@ -273,114 +418,127 @@
             <form id="cv-form">
                 <div class="input-group">
                     <label for="cv-input">CV en vrac :</label>
-                    <textarea id="cv-input" 
-                              class="cv-input"
-                              placeholder="Collez ici le CV complet en vrac...
-
-Exemple:
-Jean Dupont
-jean.dupont@email.com
-06 12 34 56 78
-123 rue de la Paix, Paris
-
-EXPERIENCE PROFESSIONNELLE
-Développeur Senior - TechCorp (2020-2024)
-Développement d'applications web
-Management d'équipe
-
-COMPETENCES
-JavaScript, Python, React
-Management, Leadership
-
-FORMATION
-Master Informatique - Université Paris (2018)
-Licence Informatique - Université Lyon (2016)
-
-LANGUES
-Français (natif), Anglais (courant)
-
-CENTRES D'INTERET
-Programmation, Voyages, Sport"
-                              required></textarea>
+                    <textarea id="cv-input" class="cv-input" placeholder="Collez ici le CV complet à organiser..." required></textarea>
                 </div>
 
-                <button type="submit" class="btn" id="organize-btn">
-                    🤖 Organiser avec l'IA
+                <button type="submit" class="btn btn-full" id="organize-btn">
+                    Organiser avec l'IA
                 </button>
             </form>
 
             <div class="loading" id="loading">
-                Analyse et organisation en cours...
+                ⏳ Analyse et organisation en cours...
             </div>
 
             <div class="results" id="results">
-                <h2 style="margin-bottom: 20px; color: #333;">📝 CV Organisé par sections :</h2>
+                <h2>Sections organisées (modifiables) :</h2>
                 
                 <div class="section-grid">
                     <div class="section-block">
-                        <div class="section-title">💼 Expériences Professionnelles</div>
-                        <textarea class="section-content" id="experiences" placeholder="Les expériences apparaîtront ici..."></textarea>
+                        <div class="section-title">Expériences Professionnelles</div>
+                        <textarea class="section-content" id="experiences"></textarea>
                     </div>
 
                     <div class="section-block">
-                        <div class="section-title">🎯 Compétences</div>
-                        <textarea class="section-content" id="competences" placeholder="Les compétences apparaîtront ici..."></textarea>
+                        <div class="section-title">Compétences</div>
+                        <textarea class="section-content" id="competences"></textarea>
                     </div>
 
                     <div class="section-block">
-                        <div class="section-title">🎓 Formations</div>
-                        <textarea class="section-content" id="formations" placeholder="Les formations apparaîtront ici..."></textarea>
+                        <div class="section-title">Formations</div>
+                        <textarea class="section-content" id="formations"></textarea>
                     </div>
 
                     <div class="section-block">
-                        <div class="section-title">🌍 Langues</div>
-                        <textarea class="section-content" id="langues" placeholder="Les langues apparaîtront ici..."></textarea>
+                        <div class="section-title">Langues</div>
+                        <textarea class="section-content" id="langues"></textarea>
                     </div>
 
                     <div class="section-block">
-                        <div class="section-title">🎨 Centres d'Intérêt</div>
-                        <textarea class="section-content" id="centres_interet" placeholder="Les centres d'intérêt apparaîtront ici..."></textarea>
+                        <div class="section-title">Centres d'Intérêt</div>
+                        <textarea class="section-content" id="centres_interet"></textarea>
                     </div>
 
                     <div class="section-block">
-                        <div class="section-title">➕ Section Libre</div>
-                        <textarea class="section-content" id="section_libre" placeholder="Zone libre pour ajouts manuels..."></textarea>
+                        <div class="section-title">Section Libre</div>
+                        <textarea class="section-content" id="section_libre"></textarea>
                     </div>
                 </div>
 
-                <div style="margin-top: 30px; text-align: center;">
-                    <button type="button" class="btn" onclick="clearAll()" style="width: auto; margin: 0 10px;">
-                        🆕 Nouveau CV
-                    </button>
+                <div class="preview-section">
+                    <h3>Aperçu CV Final :</h3>
+                    <button type="button" class="btn" onclick="updatePreview()">Actualiser l'aperçu</button>
+                    <button type="button" class="btn" onclick="printCV()" style="margin-left: 10px;">Imprimer / PDF</button>
+                    <button type="button" class="btn" onclick="clearAll()" style="margin-left: 10px; background: #dc2626;">Nouveau CV</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- APERÇU CV FINAL -->
+        <div class="cv-preview" id="cv-preview" style="display: none;">
+            <div class="cv-header-preview">
+                <div class="logo-area">LOGO ICI</div>
+                <div class="header-info">
+                    <div class="poste-recherche" id="preview-poste">POSTE À DÉFINIR</div>
+                    <div class="profil-code" id="preview-profil">PROFIL ABC</div>
+                </div>
+            </div>
+
+            <div class="cv-body-preview">
+                <div class="section-preview" id="preview-experiences">
+                    <div class="section-header-preview">Expériences Professionnelles</div>
+                    <div id="exp-content"></div>
+                </div>
+
+                <div class="section-preview" id="preview-competences">
+                    <div class="section-header-preview">Compétences</div>
+                    <div id="comp-content"></div>
+                </div>
+
+                <div class="section-preview" id="preview-formations">
+                    <div class="section-header-preview">Formations</div>
+                    <div id="form-content"></div>
+                </div>
+
+                <div class="section-preview" id="preview-langues">
+                    <div class="section-header-preview">Langues</div>
+                    <div id="lang-content"></div>
+                </div>
+
+                <div class="section-preview" id="preview-centres">
+                    <div class="section-header-preview">Centres d'Intérêt</div>
+                    <div id="centres-content"></div>
+                </div>
+
+                <div class="section-preview" id="preview-libre">
+                    <div class="section-header-preview">Autres</div>
+                    <div id="libre-content"></div>
                 </div>
             </div>
         </div>
     </div>
 
     <script>
-        // Sauvegarde automatique de la configuration
-        document.getElementById('api-key').addEventListener('input', function() {
-            localStorage.setItem('openrouter_api_key', this.value);
+        // Sauvegarde automatique
+        const inputs = ['api-key', 'model-select', 'poste-recherche', 'profil-code', 'cv-input'];
+        inputs.forEach(id => {
+            const element = document.getElementById(id);
+            element.addEventListener('input', () => {
+                localStorage.setItem(id, element.value);
+            });
         });
 
-        document.getElementById('model-select').addEventListener('change', function() {
-            localStorage.setItem('openrouter_model', this.value);
+        // Chargement sauvegarde
+        window.addEventListener('load', () => {
+            inputs.forEach(id => {
+                const saved = localStorage.getItem(id);
+                if (saved) {
+                    document.getElementById(id).value = saved;
+                }
+            });
         });
 
-        // Chargement de la configuration sauvegardée
-        window.addEventListener('load', function() {
-            const savedApiKey = localStorage.getItem('openrouter_api_key');
-            const savedModel = localStorage.getItem('openrouter_model');
-            
-            if (savedApiKey) {
-                document.getElementById('api-key').value = savedApiKey;
-            }
-            if (savedModel) {
-                document.getElementById('model-select').value = savedModel;
-            }
-        });
-
-        // Gestion du formulaire
+        // Gestion formulaire
         document.getElementById('cv-form').addEventListener('submit', async function(e) {
             e.preventDefault();
             
@@ -388,7 +546,6 @@ Programmation, Voyages, Sport"
             const model = document.getElementById('model-select').value;
             const cvText = document.getElementById('cv-input').value.trim();
             
-            // Validation
             if (!apiKey) {
                 showError('Veuillez entrer votre clé API OpenRouter');
                 return;
@@ -399,7 +556,6 @@ Programmation, Voyages, Sport"
                 return;
             }
             
-            // Interface de chargement
             document.getElementById('organize-btn').disabled = true;
             document.getElementById('loading').style.display = 'block';
             hideMessages();
@@ -417,26 +573,26 @@ Programmation, Voyages, Sport"
         });
 
         async function organizeCV(apiKey, model, cvText) {
-            const prompt = `Tu es un organisateur de CV professionnel. Analyse ce CV et sépare-le EXACTEMENT par sections.
+            const prompt = `Tu es un organisateur de CV professionnel. Analyse ce CV et sépare-le EXACTEMENT par sections sans rien modifier.
 
 CV EN VRAC:
 ${cvText}
 
-RÈGLES ABSOLUES:
-1. Ne JAMAIS modifier, reformuler ou changer le texte original
-2. COPIE exactement chaque phrase dans la bonne section  
-3. SUPPRIME seulement: nom complet, prénom, email, téléphone, adresse complète
-4. ORDRE OBLIGATOIRE: Expériences → Compétences → Formations → Langues → Centres d'intérêt
-5. Une phrase = une ligne (retour à la ligne après chaque phrase)
-6. Garde TOUT le contenu professionnel intact
+RÈGLES STRICTES:
+1. COPIE exactement chaque phrase du CV original
+2. SUPPRIME seulement: nom complet, prénom, email, téléphone, adresse complète
+3. ORDRE: Expériences → Compétences → Formations → Langues → Centres d'intérêt
+4. Retours à la ligne: simple retour entre poste/date/tâches, DOUBLE retour entre différentes expériences
+5. NE JAMAIS reformuler, modifier ou inventer
+6. Une phrase = une ligne
 
-RÉPONDS UNIQUEMENT en JSON valide (sans commentaires):
+RÉPONDS en JSON valide:
 {
-  "experiences": "texte exact des expériences...",
-  "competences": "texte exact des compétences...",
-  "formations": "texte exact des formations...",
-  "langues": "texte exact des langues...",
-  "centres_interet": "texte exact des centres d'intérêt..."
+  "experiences": "texte exact avec \\n pour retours à la ligne...",
+  "competences": "texte exact...",
+  "formations": "texte exact...", 
+  "langues": "texte exact...",
+  "centres_interet": "texte exact..."
 }`;
 
             const response = await fetch('https://openrouter.ai/api/v1/chat/completions', {
@@ -449,14 +605,9 @@ RÉPONDS UNIQUEMENT en JSON valide (sans commentaires):
                 },
                 body: JSON.stringify({
                     model: model,
-                    messages: [
-                        {
-                            role: 'user',
-                            content: prompt
-                        }
-                    ],
-                    temperature: 0.1,
-                    max_tokens: 2000
+                    messages: [{ role: 'user', content: prompt }],
+                    temperature: 0.05,
+                    max_tokens: 3000
                 })
             });
 
@@ -472,47 +623,115 @@ RÉPONDS UNIQUEMENT en JSON valide (sans commentaires):
                 throw new Error('Réponse vide de l\'IA');
             }
 
-            // Parse du JSON de l'IA
-            try {
-                const jsonMatch = content.match(/\{[\s\S]*\}/);
-                if (jsonMatch) {
-                    return JSON.parse(jsonMatch[0]);
-                } else {
-                    throw new Error('Format JSON non trouvé dans la réponse');
-                }
-            } catch (parseError) {
-                console.log('Contenu brut reçu:', content);
-                throw new Error('Format de réponse invalide: ' + parseError.message);
+            const jsonMatch = content.match(/\{[\s\S]*\}/);
+            if (jsonMatch) {
+                return JSON.parse(jsonMatch[0]);
+            } else {
+                throw new Error('Format JSON non trouvé');
             }
         }
 
         function displayResults(data) {
-            // Affichage des résultats dans les zones
             document.getElementById('experiences').value = data.experiences || '';
             document.getElementById('competences').value = data.competences || '';
             document.getElementById('formations').value = data.formations || '';
             document.getElementById('langues').value = data.langues || '';
             document.getElementById('centres_interet').value = data.centres_interet || '';
             
-            // Afficher la section résultats
             document.getElementById('results').style.display = 'block';
+            document.getElementById('results').scrollIntoView({ behavior: 'smooth' });
             
-            // Scroll vers les résultats
-            document.getElementById('results').scrollIntoView({ 
-                behavior: 'smooth',
-                block: 'start'
+            updatePreview();
+        }
+
+        function updatePreview() {
+            // Mettre à jour en-tête
+            const poste = document.getElementById('poste-recherche').value || 'POSTE À DÉFINIR';
+            const profil = document.getElementById('profil-code').value || 'PROFIL ABC';
+            
+            document.getElementById('preview-poste').textContent = poste;
+            document.getElementById('preview-profil').textContent = profil;
+            
+            // Mettre à jour contenu
+            const sections = ['experiences', 'competences', 'formations', 'langues', 'centres_interet', 'section_libre'];
+            const contentDivs = ['exp-content', 'comp-content', 'form-content', 'lang-content', 'centres-content', 'libre-content'];
+            
+            sections.forEach((section, index) => {
+                const content = document.getElementById(section).value;
+                const div = document.getElementById(contentDivs[index]);
+                
+                if (content.trim()) {
+                    if (section === 'experiences') {
+                        div.innerHTML = formatExperiences(content);
+                    } else {
+                        div.innerHTML = formatGeneric(content);
+                    }
+                    document.getElementById(`preview-${section}`).style.display = 'block';
+                } else {
+                    document.getElementById(`preview-${section === 'centres_interet' ? 'centres' : section === 'section_libre' ? 'libre' : section}`).style.display = 'none';
+                }
             });
+            
+            document.getElementById('cv-preview').style.display = 'block';
+        }
+
+        function formatExperiences(text) {
+            const lines = text.split('\n').filter(line => line.trim());
+            let html = '';
+            let currentBlock = '';
+            
+            for (let i = 0; i < lines.length; i++) {
+                const line = lines[i].trim();
+                
+                if (line === '') {
+                    if (currentBlock) {
+                        html += '</div>';
+                        currentBlock = '';
+                    }
+                    continue;
+                }
+                
+                // Détecter si c'est un nouveau poste (contient - ou chez)
+                if (line.includes(' - ') || line.includes(' chez ') || (i === 0)) {
+                    if (currentBlock) html += '</div>';
+                    html += '<div class="experience-block-preview">';
+                    html += `<div class="poste-entreprise-preview">${line}</div>`;
+                    currentBlock = 'open';
+                }
+                // Détecter date (contient années ou mois)
+                else if (line.match(/\d{4}/) || line.includes('|')) {
+                    html += `<div class="periode-lieu-preview">${line}</div>`;
+                }
+                // Sinon c'est une mission
+                else {
+                    html += `<div class="mission-preview">${line}</div>`;
+                }
+            }
+            
+            if (currentBlock) html += '</div>';
+            return html;
+        }
+
+        function formatGeneric(text) {
+            return text.split('\n')
+                .filter(line => line.trim())
+                .map(line => `<div class="mission-preview">${line.trim()}</div>`)
+                .join('');
+        }
+
+        function printCV() {
+            window.print();
         }
 
         function showError(message) {
             const errorDiv = document.getElementById('error-message');
-            errorDiv.textContent = '❌ ' + message;
+            errorDiv.textContent = message;
             errorDiv.style.display = 'block';
         }
 
         function showSuccess(message) {
             const successDiv = document.getElementById('success-message');
-            successDiv.textContent = '✅ ' + message;
+            successDiv.textContent = message;
             successDiv.style.display = 'block';
         }
 
@@ -523,13 +742,16 @@ RÉPONDS UNIQUEMENT en JSON valide (sans commentaires):
 
         function clearAll() {
             if (confirm('Effacer tout et recommencer ?')) {
-                document.getElementById('cv-input').value = '';
-                document.getElementById('results').style.display = 'none';
+                inputs.forEach(id => {
+                    document.getElementById(id).value = '';
+                    localStorage.removeItem(id);
+                });
                 document.querySelectorAll('.section-content').forEach(textarea => {
                     textarea.value = '';
                 });
+                document.getElementById('results').style.display = 'none';
+                document.getElementById('cv-preview').style.display = 'none';
                 hideMessages();
-                document.getElementById('cv-input').focus();
             }
         }
     </script>
